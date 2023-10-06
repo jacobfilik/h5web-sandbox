@@ -15,22 +15,22 @@ function getFeedbackURL(context: FeedbackContext): string {
 
 function H5GroveApp() {
   // assertEnvVar(URL, 'VITE_H5GROVE_URL');
-  assertEnvVar(FILEPATH, 'VITE_H5GROVE_FALLBACK_FILEPATH');
+  //assertEnvVar(FILEPATH, 'VITE_H5GROVE_FALLBACK_FILEPATH');
 
   // const filepath = "/data/lizard.nxs"
   // const URL = "http://localhost:5173/api"
 
   const URL = location.protocol + '//' + location.host
   const query = new URLSearchParams(useLocation().search);
-  const filepath = query.get('file') || FILEPATH;
+  const dcid = query.get('dcid');
 
   return (
     <H5GroveProvider
       url={URL}
-      filepath={filepath}
-      axiosConfig={{ params: { file: filepath } }}
+      filepath={"file.h5"}
+      axiosConfig={{ params: { dcid: dcid }}}
     >
-      <App sidebarOpen={false} getFeedbackURL={getFeedbackURL} />
+      <App sidebarOpen={true} getFeedbackURL={getFeedbackURL} />
     </H5GroveProvider>
   );
 }
