@@ -23,12 +23,13 @@ function H5GroveApp() {
   const URL = location.protocol + '//' + location.host
   const query = new URLSearchParams(useLocation().search);
   const dcid = query.get('dcid');
+  const appaid = query.get('dcid');
 
   return (
     <H5GroveProvider
       url={URL}
       filepath={"file.h5"}
-      axiosConfig={{ params: { dcid: dcid }}}
+      axiosConfig={{ params: { dcid: dcid , appaid: appaid}}}
     >
       <App sidebarOpen={true} getFeedbackURL={getFeedbackURL} />
     </H5GroveProvider>
