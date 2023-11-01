@@ -23,7 +23,7 @@ function H5GroveApp() {
   const URL = location.protocol + '//' + location.host
   const query = new URLSearchParams(useLocation().search);
   const dcid = query.get('dcid');
-  const appaid = query.get('dcid');
+  const appaid = query.get('appaid');
 
   return (
     <H5GroveProvider
